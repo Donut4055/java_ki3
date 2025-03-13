@@ -2,7 +2,7 @@ package bt5;
 
 public class Main {
     public static void main(String[] args) {
-        Circle circle = new Circle(3.5);
+        Circle circle = new Circle(3);
         System.out.println("Diện tích hình tròn: " + circle.getArea());
 
         Cylinder cylinder = new Cylinder(3.5, 10.0);
@@ -17,8 +17,8 @@ public class Main {
         System.out.println("\nSau khi thay đổi bán kính và chiều cao:");
         System.out.println("Thể tích hình trụ mới: " + cylinder.getVolume());
 
-        cylinder.setRadius(-2.0);
-        cylinder.setHeight(-5.0);
+        cylinder.setRadius(-1.0);
+        cylinder.setHeight(-4.0);
     }
 }
 
