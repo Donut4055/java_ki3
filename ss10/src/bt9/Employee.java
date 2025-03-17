@@ -6,9 +6,6 @@ public class Employee {
     public double salary;
 
     public Employee() {
-        this.name = "";
-        this.id = "";
-        this.salary = 0.0;
     }
 
     public Employee(String name, String id, double salary) {

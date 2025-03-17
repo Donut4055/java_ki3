@@ -4,8 +4,7 @@ public class Manager extends Employee {
     private double bonus;
 
     public Manager() {
-        super();
-        this.bonus = 0.0;
+
     }
 
     public Manager(String name, String id, double salary, double bonus) {
