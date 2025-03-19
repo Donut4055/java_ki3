@@ -36,6 +36,6 @@ public final class inputValidate {
     }
 
     public static boolean checkDepartment(String department) {
-        return department.isEmpty();
+        return !department.isEmpty();
     }
 }
