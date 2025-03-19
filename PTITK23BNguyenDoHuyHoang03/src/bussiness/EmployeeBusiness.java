@@ -54,7 +54,7 @@ public class EmployeeBusiness {
         System.out.println("Không tìm thấy nhân viên có mã " + id);
     }
 
-    public static void deleteEmployee(Scanner scanner) {
+    public static void deleteEmployee() {
         System.out.println("Nhập mã nhân viên cần xóa: ");
         String id = scanner.nextLine();
         for (int i = 0; i < size; i++) {

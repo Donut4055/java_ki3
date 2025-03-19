@@ -31,7 +31,7 @@ public class EmployeeApplication extends EmployeeBusiness {
                     editEmployee(scanner);
                     break;
                 case 4:
-                    deleteEmployee(scanner);
+                    deleteEmployee();
                     break;
                 case 5:
                     searchEmployee(scanner);
