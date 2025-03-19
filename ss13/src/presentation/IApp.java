@@ -1,4 +1,4 @@
-package bt2;
+package presentation;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package bt1;
+package entity;
 
 import java.util.Scanner;
 

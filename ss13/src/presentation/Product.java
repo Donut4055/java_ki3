@@ -1,8 +1,13 @@
-package bt1;
+package presentation;
 
 import java.util.Scanner;
 
 public class Product implements IApp {
+    // Constants for status
+    public static final int STATUS_ACTIVE = 0;
+    public static final int STATUS_OUT_OF_STOCK = 1;
+    public static final int STATUS_INACTIVE = 2;
+
     private String code;
     private String name;
     private float importPrice;
@@ -13,8 +18,9 @@ public class Product implements IApp {
     private int categoryId;
     private int status;
 
+    // Constructors
     public Product() {
-        this.status = 0; // 0: Hoạt động, 1: Hết hàng, 2: Không hoạt động
+        this.status = STATUS_ACTIVE;
     }
 
     public Product(String code, String name, float importPrice, float exportPrice,
@@ -27,9 +33,10 @@ public class Product implements IApp {
         this.description = description;
         this.quantity = quantity;
         this.categoryId = categoryId;
-        this.status = 0;
+        this.status = STATUS_ACTIVE;
     }
 
+    // Getters & Setters
     public String getCode() { return code; }
     public void setCode(String code) { this.code = code; }
 
@@ -57,29 +64,36 @@ public class Product implements IApp {
     public int getStatus() { return status; }
     public void setStatus(int status) { this.status = status; }
 
+    public boolean isActive() {
+        return this.status == STATUS_ACTIVE;
+    }
+
+    private String getStatusText() {
+        return switch (status) {
+            case STATUS_ACTIVE -> "Đang hoạt động";
+            case STATUS_OUT_OF_STOCK -> "Hết hàng";
+            case STATUS_INACTIVE -> "Không hoạt động";
+            default -> "Không xác định";
+        };
+    }
+
+    // Input data
     @Override
     public void inputData(Scanner scanner) {
         System.out.println("=== Thêm mới sản phẩm ===");
-        System.out.print("Mã sản phẩm (C/E/T): ");
-        this.code = scanner.nextLine();
-        System.out.print("Tên sản phẩm: ");
-        this.name = scanner.nextLine();
-        System.out.print("Giá nhập: ");
-        this.importPrice = Float.parseFloat(scanner.nextLine());
-        System.out.print("Giá xuất: ");
-        this.exportPrice = Float.parseFloat(scanner.nextLine());
-        System.out.print("Tiêu đề: ");
-        this.header = scanner.nextLine();
-        System.out.print("Mô tả ngắn: ");
-        this.description = scanner.nextLine();
-        System.out.print("Số lượng: ");
-        this.quantity = Integer.parseInt(scanner.nextLine());
-        System.out.print("ID danh mục: ");
-        this.categoryId = Integer.parseInt(scanner.nextLine());
+        this.code = inputString(scanner, "Mã sản phẩm (C/E/T): ");
+        this.name = inputString(scanner, "Tên sản phẩm: ");
+        this.importPrice = inputFloat(scanner, "Giá nhập: ");
+        this.exportPrice = inputFloat(scanner, "Giá xuất: ");
+        this.header = inputString(scanner, "Tiêu đề: ");
+        this.description = inputString(scanner, "Mô tả ngắn: ");
+        this.quantity = inputInt(scanner, "Số lượng: ");
+        this.categoryId = inputInt(scanner, "ID danh mục: ");
+        this.status = STATUS_ACTIVE;
         System.out.println();
-        this.status = 0;
     }
 
+    // Display data
     @Override
     public void displayData() {
         System.out.println("=== Thông tin sản phẩm ===");
@@ -90,8 +104,7 @@ public class Product implements IApp {
         System.out.println("Tiêu đề: " + header);
         System.out.println("Mô tả ngắn: " + description);
         System.out.println("Số lượng còn: " + quantity);
-        System.out.println("Trạng thái: " +
-                (status == 0 ? "Đang hoạt động" : status == 1 ? "Hết hàng" : "Không hoạt động"));
+        System.out.println("Trạng thái: " + getStatusText());
         System.out.println("------------------------");
     }
 
@@ -100,12 +113,45 @@ public class Product implements IApp {
         displayData();
     }
 
-    public boolean isActive() {
-        return status == 0;
-    }
-
     @Override
     public String toString() {
-        return "Product{code='" + code + "', name='" + name + "', importPrice=" + importPrice + "}";
+        return "Product{" +
+                "code='" + code + '\'' +
+                ", name='" + name + '\'' +
+                ", importPrice=" + importPrice +
+                ", exportPrice=" + exportPrice +
+                '}';
+    }
+
+    // Utility methods for input
+    private String inputString(Scanner scanner, String prompt) {
+        System.out.print(prompt);
+        return scanner.nextLine();
+    }
+
+    private int inputInt(Scanner scanner, String prompt) {
+        while (true) {
+            try {
+                System.out.print(prompt);
+                return Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Vui lòng nhập số nguyên hợp lệ.");
+            }
+        }
+    }
+
+    private float inputFloat(Scanner scanner, String prompt) {
+        while (true) {
+            try {
+                System.out.print(prompt);
+                return Float.parseFloat(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Vui lòng nhập số thực hợp lệ.");
+            }
+        }
     }
 }
+//Gom các hằng số status để tăng tính dễ đọc và tránh "magic number".
+//Tách phần nhập dữ liệu thành các hàm riêng để dễ kiểm soát validate.
+//Tối ưu displayData() cho dễ mở rộng.
+//Gợi ý thêm getter định dạng trạng thái.
