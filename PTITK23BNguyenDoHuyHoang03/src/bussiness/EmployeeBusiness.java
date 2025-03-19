@@ -61,6 +61,7 @@ public class EmployeeBusiness {
             if (employees[i].getEmployeeID().equals(id)) {
                 employees[i] = employees[size - 1];
                 size--;
+                System.out.println("Xóa nhân viên thành công");
                 return;
             }
         }
@@ -136,6 +137,7 @@ public class EmployeeBusiness {
                 }
             }
         }
+        displayEmployee();
     }
 }
 
