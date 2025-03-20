@@ -47,5 +47,4 @@ public class EmployeeApplication extends EmployeeBusiness {
             }
         } while (choice != 0);
     }
-
 }
