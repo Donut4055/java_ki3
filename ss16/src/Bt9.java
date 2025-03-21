@@ -15,12 +15,18 @@ public class Bt9 {
             arr[i] = sc.nextInt();
         }
         for (int i = 0; i < n; i++) {
-            if (isPrime(arr[i])) {
-                Prime.add(arr[i]);
-            } else if (isEven(arr[i])) {
-                Even.add(arr[i]);
+            int value = arr[i];
+            if (Prime.contains(value) || Even.contains(value) || Odd.contains(value)) {
+                continue;
+            }
+            if (isPrime(value)) {
+
+                    Prime.add(value);
+
+            } else if (isEven(value)) {
+                    Even.add(value);
             } else {
-                Odd.add(arr[i]);
+                    Odd.add(value);
             }
         }
         System.out.println("Even: " + Even);
