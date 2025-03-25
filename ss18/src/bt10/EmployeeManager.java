@@ -57,7 +57,7 @@ public class EmployeeManager {
         Employee employee = new Employee(nextId, name, salary);
         employees.put(nextId, employee);
         System.out.println("Đã thêm nhân viên: " + employee);
-        nextId++; // Tăng ID cho nhân viên tiếp theo
+        nextId++;
     }
 
     private void displayEmployees() {
