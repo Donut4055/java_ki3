@@ -10,7 +10,9 @@ public class Customer implements IApp {
     private String name;
     private Optional<String> email;
 
-    public Customer() {}
+    public Customer() {
+        this.id = customers.getLast().getId() + 1;
+    }
 
     public Customer(int id, String name, String email) {
         this.id = customers.getLast().getId() + 1;
