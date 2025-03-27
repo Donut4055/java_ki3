@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class OrderBusiness implements IOrderBusiness {
-    static List<Order> orders = new ArrayList<>();
+    public static List<Order> orders = new ArrayList<>();
     public static void addOrder(Scanner sc) {
         System.out.println("Add order");
         Order order = new Order();

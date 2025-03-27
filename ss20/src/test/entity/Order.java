@@ -3,6 +3,8 @@ package test.entity;
 import java.time.LocalDate;
 import java.util.Scanner;
 
+import static test.business.OrderBusiness.orders;
+
 public class Order implements IApp {
     private int id;
     private Customer customer;
@@ -11,7 +13,8 @@ public class Order implements IApp {
     private Boolean status;
 
     public Order(){}
-    public Order( Customer customer, LocalDate orderDate, double totalAmount, Boolean status) {
+    public Order(int id,  Customer customer, LocalDate orderDate, double totalAmount, Boolean status) {
+        this.id = orders.getLast().getId() + 1;
         this.customer = customer;
         this.orderDate = orderDate;
         this.totalAmount = totalAmount;

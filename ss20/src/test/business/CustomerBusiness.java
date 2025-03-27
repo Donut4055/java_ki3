@@ -5,7 +5,7 @@ import test.entity.Customer;
 import java.util.*;
 
 public class CustomerBusiness {
-    static List<Customer> customers = new LinkedList<>();
+    public static List<Customer> customers = new LinkedList<>();
     static Scanner sc = new Scanner(System.in);
     public static void addCustomer() {
         System.out.println("them khach hang");

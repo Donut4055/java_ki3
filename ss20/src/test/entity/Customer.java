@@ -3,14 +3,17 @@ package test.entity;
 import java.util.Optional;
 import java.util.Scanner;
 
+import static test.business.CustomerBusiness.customers;
+
 public class Customer implements IApp {
-    private static int id;
+    private int id;
     private String name;
     private Optional<String> email;
 
     public Customer() {}
 
-    public Customer(String name, String email) {
+    public Customer(int id, String name, String email) {
+        this.id = customers.getLast().getId() + 1;
         this.name = name;
         this.email = Optional.of(email);
     }
