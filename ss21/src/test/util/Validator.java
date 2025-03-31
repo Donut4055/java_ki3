@@ -41,7 +41,7 @@ public class Validator {
             return false;
         }
         String inputString = input.trim();
-        int minLength = 1;
+        int minLength = 5;
         int maxLength = 100;
         return inputString.length() >= minLength && inputString.length() <= maxLength;
     }
