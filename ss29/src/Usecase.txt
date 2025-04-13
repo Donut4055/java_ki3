@@ -1,0 +1,102 @@
+Use Case 01: Đăng nhập
+- Mô tả: Người dùng nhập username và password để đăng nhập vào hệ thống.
+- Tác nhân: Admin, HR
+- Tiền điều kiện: Người dùng chưa đăng nhập vào hệ thống.
+- Hậu điều kiện: Nếu hợp lệ và tài khoản ở trạng thái ACTIVE, người dùng được đăng nhập và ghi nhận vào biến static `Account.currentUser`.
+
+Use Case 02: Đăng xuất
+- Mô tả: Người dùng đăng xuất để kết thúc phiên làm việc.
+- Tác nhân: Admin, HR
+- Tiền điều kiện: Người dùng đã đăng nhập.
+- Hậu điều kiện: Biến `Account.currentUser` được đặt thành null, kết thúc phiên làm việc.
+
+Use Case 03: Xem danh sách phòng ban
+- Mô tả: Hiển thị danh sách tất cả phòng ban hiện có trong hệ thống.
+- Tác nhân: Admin, HR
+- Tiền điều kiện: Người dùng đã đăng nhập.
+- Hậu điều kiện: Danh sách được hiển thị nếu có dữ liệu.
+
+Use Case 04: Thêm mới phòng ban
+- Mô tả: Thêm một phòng ban mới vào hệ thống quản lý.
+- Tác nhân: Admin, HR
+- Tiền điều kiện: Người dùng đã đăng nhập.
+- Hậu điều kiện: Phòng ban mới được lưu và hiển thị trong danh sách.
+
+Use Case 05: Cập nhật phòng ban
+- Mô tả: Cập nhật thông tin phòng ban theo ID.
+- Tác nhân: Admin, HR
+- Tiền điều kiện: Người dùng đã đăng nhập.
+- Hậu điều kiện: Phòng ban được cập nhật thông tin thành công.
+
+Use Case 06: Xóa phòng ban
+- Mô tả: Xóa một phòng ban nếu không chứa nhân viên.
+- Tác nhân: Admin, HR
+- Tiền điều kiện: Người dùng đã đăng nhập.
+- Hậu điều kiện: Phòng ban được xóa khỏi hệ thống nếu hợp lệ.
+
+Use Case 07: Tìm kiếm phòng ban theo tên
+- Mô tả: Tìm kiếm các phòng ban khớp với từ khóa.
+- Tác nhân: Admin, HR
+- Tiền điều kiện: Người dùng đã đăng nhập.
+- Hậu điều kiện: Hiển thị kết quả các phòng ban tìm thấy.
+
+Use Case 08: Xem danh sách nhân viên
+- Mô tả: Hiển thị danh sách toàn bộ nhân viên trong hệ thống.
+- Tác nhân: Admin, HR
+- Tiền điều kiện: Người dùng đã đăng nhập.
+- Hậu điều kiện: Danh sách nhân viên được hiển thị.
+
+Use Case 09: Thêm mới nhân viên
+- Mô tả: Nhập thông tin và thêm nhân viên mới vào hệ thống.
+- Tác nhân: Admin, HR
+- Tiền điều kiện: Người dùng đã đăng nhập.
+- Hậu điều kiện: Nhân viên được lưu và hiển thị trong danh sách.
+
+Use Case 10: Cập nhật nhân viên
+- Mô tả: Cập nhật thông tin một nhân viên đã có.
+- Tác nhân: Admin, HR
+- Tiền điều kiện: Người dùng đã đăng nhập.
+- Hậu điều kiện: Nhân viên được cập nhật thành công.
+
+Use Case 11: Xóa nhân viên (Soft delete)
+- Mô tả: Chuyển trạng thái nhân viên sang INACTIVE thay vì xóa hoàn toàn.
+- Tác nhân: Admin, HR
+- Tiền điều kiện: Người dùng đã đăng nhập.
+- Hậu điều kiện: Nhân viên có trạng thái mới là INACTIVE.
+
+Use Case 12: Tìm kiếm nhân viên theo tên hoặc tuổi
+- Mô tả: Cho phép người dùng tìm nhân viên bằng tên hoặc theo khoảng tuổi.
+- Tác nhân: Admin, HR
+- Tiền điều kiện: Người dùng đã đăng nhập.
+- Hậu điều kiện: Danh sách nhân viên phù hợp được hiển thị.
+
+Use Case 13: Sắp xếp nhân viên
+- Mô tả: Sắp xếp danh sách nhân viên theo tên tăng dần hoặc lương giảm dần.
+- Tác nhân: Admin, HR
+- Tiền điều kiện: Người dùng đã đăng nhập.
+- Hậu điều kiện: Danh sách hiển thị theo thứ tự mong muốn.
+
+Use Case 14: Thống kê số lượng nhân viên theo phòng ban
+- Mô tả: Hiển thị số nhân viên đang thuộc mỗi phòng ban.
+- Tác nhân: Admin, HR
+- Tiền điều kiện: Hệ thống có dữ liệu nhân viên, phòng ban và người dùng đã đăng nhập.
+- Hậu điều kiện: Danh sách phòng ban kèm số nhân viên được hiển thị.
+
+Use Case 15: Thống kê phòng ban có nhiều nhân viên nhất
+- Mô tả: Hiển thị tên phòng ban có số lượng nhân viên lớn nhất.
+- Tác nhân: Admin, HR
+- Tiền điều kiện: Người dùng đã đăng nhập.
+- Hậu điều kiện: Danh sách phòng ban có nhiều nhân viên nhất được hiển thị.
+
+Use Case 16: Thống kê phòng ban có lương trung bình cao nhất
+- Mô tả: Hiển thị phòng ban có mức lương trung bình cao nhất trong hệ thống.
+- Tác nhân: Admin, HR
+- Tiền điều kiện: Người dùng đã đăng nhập và hệ thống có dữ liệu nhân viên.
+- Hậu điều kiện: Kết quả thống kê được hiển thị.
+
+Use Case 17: Thống kê tổng số nhân viên
+- Mô tả: Thống kê tổng số lượng nhân viên đang làm việc.
+- Tác nhân: Admin, HR
+- Tiền điều kiện: Người dùng đã đăng nhập.
+- Hậu điều kiện: Tổng số nhân viên ACTIVE được hiển thị.
+
